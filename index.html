@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latihan</title>
+<style>
+body {
+    font-family: "Lato", sans-serif;
+
+}
+
+.bodi {
+    padding: 20px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+}
+.tablink {
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: auto;
+    font-size: 17px;
+    width: 50%;
+}
+
+.tablink:hover {
+    opacity: 0.8;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 50px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4286f4;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 44%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 100px 20px 20px 20px;
+    
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+
+</style>
+</head>
+<body>
+<div class="bodi">
+<button class="tablink" onclick="bukaMenu('Masuk', this)" id="defaultOpen">Masuk</button>
+<button class="tablink" onclick="bukaMenu('Daftar', this)">Daftar</button>
+<form action="/halaman_aksi.php">
+  <div class="tabcontent container" id="Masuk">
+    <div class="imgcontainer">
+        <img src="screenshot/logo.png" alt="fotomu" class="avatar">
+    </div>
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Masukkan Username" name="uname" required>
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Masukkan Password" name="psw" required>
+        <button type="submit">Masuk</button>
+        <input type="checkbox" checked="checked"> Ingat saya
+        <span class="psw">Lupa <a href="#">password </a>?</span>
+  </div>
+  <div class="tabcontent container" id="Daftar">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Masukkan Email" name="email" required>
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Masukkan Password" name="psw" required>
+        <label><b>Ulangi Password</b></label>
+        <input type="password" placeholder="Ulangi Password" name="psw-repeat" required>
+        <input type="checkbox" checked="checked"> Ingat saya<br/>
+        
+        <button onclick="bukaMenu('Masuk', this)" type="button" class="tablink cancelbtn">Batal</button>
+        <button type="submit" class="tablink">Daftar</button>
+        <p>Membuat akun berarti Anda telah setuju dengan <a href="#">Syarat & Kebijakan </a>kami.</p>
+  </div>
+</form>
+</div>
+<script>
+function bukaMenu(cityName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(cityName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+     
+</body>
+</html> 
